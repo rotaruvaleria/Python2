@@ -1,0 +1,8 @@
+from math import *
+a = int(input())
+b = int(input())
+c = int(input())
+m_a = 0.5 * sqrt(2 * (b**2 + c**2) - a**2)
+m_b = 0.5 * sqrt(2 * (a**2 + c**2) - b**2)
+m_c = 0.5 * sqrt(2 * (b**2 + a**2) - c**2)
+print(m_a, m_b, m_c)

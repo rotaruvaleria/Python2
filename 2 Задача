@@ -1,0 +1,21 @@
+X = float(input())
+Y = float(input())
+if X < Y:
+    minni = X
+    maxsi = Y
+else:
+    minni = Y
+    maxsi = X
+    
+polsumma = (X + Y) / 2
+proiz = 2 * X * Y
+
+if X < Y:
+    X = polsumma
+    Y = proiz
+else:
+    Y = polsumma
+    X= proiz
+    
+print(f"X = {X}")
+print(f"Y = {Y}")

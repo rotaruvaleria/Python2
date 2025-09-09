@@ -1,5 +1,5 @@
-X = float(input())
-Y = float(input())
+X = int(input())
+Y = int(input())
 if X < Y:
     minni = X
     maxsi = Y

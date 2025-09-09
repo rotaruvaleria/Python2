@@ -1,0 +1,14 @@
+x = float(input())
+eps = 1e-6
+if abs(x) >= 1:
+    print("Ошибка")
+else:
+    result = 0
+    n = 1
+    slog = x
+    while abs(slog) >= eps:
+        result += slog
+        n += 1
+        slog = (-1)**(n-1) * x**n / n
+    print(result)
+    

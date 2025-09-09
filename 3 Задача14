@@ -1,0 +1,5 @@
+from math import *
+result = sqrt(99)
+for i in range(96, 2, -3):
+    result = sqrt(i + result)
+print(round(result, 6))

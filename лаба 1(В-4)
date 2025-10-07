@@ -1,0 +1,49 @@
+import matplotlib.pyplot as plt
+
+import numpy as np
+
+
+# Часть А
+x = np.arange(0.1, 20, 0.1) 
+
+y = 1 / np.tan(x) 
+
+
+plt.plot(x, y)
+
+plt.title('Котангенс')
+
+plt.xlabel('x')
+
+plt.ylabel('ctg(x)')
+
+plt.grid()
+
+plt.show()
+
+
+
+# Часть B
+y_tan = np.tan(x)
+
+y_ctg = 1 / np.tan(x)
+
+y_combined = 2 ** x
+
+
+
+plt.plot(x, y_tan, 'r-', linewidth=2, label='tg(x)')
+
+plt.plot(x, y_ctg, 'b--', linewidth=1.5, label='ctg(x)')
+
+plt.plot(x, y_combined, 'g:', linewidth=2, label='2^x * tg(x) * ctg(x)')
+
+
+
+plt.legend()
+
+plt.ylim(-2.5, 3.5)
+
+plt.grid()
+
+plt.show()

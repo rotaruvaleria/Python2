@@ -19,6 +19,8 @@ plt.ylabel('ctg(x)')
 
 plt.grid()
 
+plt.ylim(-2.5, 3.5)
+
 plt.show()
 
 
@@ -28,7 +30,7 @@ y_tan = np.tan(x)
 
 y_ctg = 1 / np.tan(x)
 
-y_combined = 2 ** x
+y_now = 2 * np.tan(x) * (1 / np.tan(x))
 
 
 
@@ -36,7 +38,7 @@ plt.plot(x, y_tan, 'r-', linewidth=2, label='tg(x)')
 
 plt.plot(x, y_ctg, 'b--', linewidth=1.5, label='ctg(x)')
 
-plt.plot(x, y_combined, 'g:', linewidth=2, label='2^x * tg(x) * ctg(x)')
+plt.plot(x, y_now, 'g:', linewidth=2, label='2 * tg(x) * ctg(x)')
 
 
 

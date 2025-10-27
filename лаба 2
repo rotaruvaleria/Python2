@@ -1,0 +1,73 @@
+import numpy as np
+import matplotlib.pyplot as plt
+
+x = np.linspace(0, 2*np.pi, 1000)
+
+y1 = 3*np.sin(x) + np.cos(2*x)  
+y2 = 4*np.sin(2*x) + np.cos(x)  
+
+# ПЕРВАЯ КАРТИНКА
+plt.figure(figsize=(10, 6)) 
+
+plt.plot(x, y1, 'b-', linewidth=2, label='y = 3sin(x) + cos(2x)')
+plt.plot(x, y2, 'r-', linewidth=2, label='y = 4sin(2x) + cos(x)')
+
+plt.title('Графики тригонометрических функций')
+plt.xlabel('x (радианы)')
+plt.ylabel('y')    
+plt.legend()              
+plt.grid()
+
+plt.xticks([0, np.pi/2, np.pi, 3*np.pi/2, 2*np.pi], 
+           ['0', 'π/2', 'π', '3π/2', '2π'])
+plt.show()
+
+# ВТОРАЯ КАРТИНКА
+plt.figure(figsize=(15, 10))
+
+plt.subplot(2, 3, 1)  # 2 строки, 3 столбца, 1-я ячейка
+plt.plot(x, y1, 'b-')
+plt.title('Полный график')
+plt.ylabel('y = 3sin(x) + cos(2x)')
+plt.grid()
+plt.xticks([0, np.pi/2, np.pi, 3*np.pi/2, 2*np.pi], 
+           ['0', 'π/2', 'π', '3π/2', '2π'])
+
+plt.subplot(2, 3, 2)
+plt.plot(x[::100], y1[::100], 'bo-')
+plt.title('Шаг 100 точек')
+plt.grid()
+plt.xticks([0, np.pi/2, np.pi, 3*np.pi/2, 2*np.pi], 
+           ['0', 'π/2', 'π', '3π/2', '2π'])
+
+plt.subplot(2, 3, 3)
+plt.plot(x[::50], y1[::50], 'bo-')
+plt.title('Шаг 50 точек')
+plt.grid()
+plt.xticks([0, np.pi/2, np.pi, 3*np.pi/2, 2*np.pi], 
+           ['0', 'π/2', 'π', '3π/2', '2π'])
+
+plt.subplot(2, 3, 4) 
+plt.plot(x[100:400:15], y2[100:400:15], 'ro-')
+plt.title('точки 100-400 с шагом 15')
+plt.ylabel('y = 4sin(2x) + cos(x)')
+plt.xlabel('x (радианы)')
+plt.grid()
+
+plt.subplot(2, 3, 5)
+indices = [0, 100, 200, 300]
+plt.plot(x[indices], y2[indices], 'ro-')
+plt.title('[0, 100, 200, 300]\n(конкретные индексы)')
+plt.xlabel('x (радианы)')
+plt.grid()
+
+plt.subplot(2, 3, 6)
+indices2 = [100, 300]
+plt.plot(x[indices2], y2[indices2], 'ro-', markersize=8)
+plt.title('[100, 300]\n(две конкретные точки)')
+plt.xlabel('x (радианы)')
+plt.grid()
+
+plt.suptitle('Анализ графиков с разным шагом точек', fontsize=16)
+plt.tight_layout()
+plt.show()

@@ -50,3 +50,9 @@ plt.figure(figsize=(8, 8))
 plt.pie(investment_distribution, labels=investment_categories, autopct='%1.1f%%',startangle=90, wedgeprops={'width': 0.4})  
 plt.title('Распределение инвестиций (%)')
 plt.show()
+
+
+#plt.bar(quarters[:4], order_percentages, width=0.4)
+#plt.bar(quarters[:4], [100,100,100,100], width=0.2)
+# {"width": 0.4, 'edgecolor': 'w'} 
+#во 2 shadow='True'

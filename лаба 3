@@ -1,0 +1,52 @@
+import matplotlib.pyplot as plt
+import numpy as np
+
+departments = ['Производство', 'Продажи', 'Маркетинг', 'IT']
+revenue = [28, 35, 15, 12]  
+
+import_categories = ['Машины', 'Электроника', 'Химия', 'Продукты', 'Другое']
+import_structure = [38, 25, 18, 12, 7] 
+
+quarters = ['1 кв.', '2 кв.', '3 кв.', '4 кв.']
+projects = [15, 22, 28, 19]
+
+investment_categories = ['Акции', 'Облигации', 'Недвижимость', 'Депозиты']
+investment_distribution = [45, 25, 18, 12]  
+
+# 1.
+plt.figure(figsize=(10, 6))
+plt.barh(departments, revenue)
+plt.title('Выручка по отделам (млн руб.)')
+plt.xlabel('Выручка (млн руб.)')
+plt.ylabel('Отделы')
+plt.show()
+
+# 2. 
+plt.figure(figsize=(8, 8))
+explode = (0.1, 0, 0, 0, 0)  
+
+plt.pie(import_structure, labels=import_categories, autopct='%1.0f%%', explode=explode, startangle=90)
+plt.title('Структура импорта (%)')
+plt.show()
+
+# 3. 
+plt.figure(figsize=(10, 6))
+total_projects = sum(projects)
+
+x = np.arange(len(quarters))
+width = 0.35
+
+plt.bar(x - width/2, projects, width, label='Проекты в квартале')
+plt.bar(x + width/2, [total_projects] * 4, width, label='Общая сумма')
+
+plt.title('Количество проектов по кварталам')
+plt.xlabel('Кварталы')
+plt.ylabel('Количество')
+plt.legend()
+plt.show()
+
+# 4. 
+plt.figure(figsize=(8, 8))
+plt.pie(investment_distribution, labels=investment_categories, autopct='%1.1f%%',startangle=90, wedgeprops={'width': 0.4})  
+plt.title('Распределение инвестиций (%)')
+plt.show()

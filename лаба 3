@@ -55,4 +55,36 @@ plt.show()
 #plt.bar(quarters[:4], order_percentages, width=0.4)
 #plt.bar(quarters[:4], [100,100,100,100], width=0.2)
 # {"width": 0.4, 'edgecolor': 'w'} 
-#во 2 shadow='True'
+#во 2 shadow='True'import matplotlib.pyplot as plt
+import numpy as np
+
+# Данные
+quarters = ['1 кв.', '2 кв.', '3 кв.', '4 кв.']
+projects = [15, 22, 28, 19]
+total = sum(projects)
+
+# 3. Диаграмма проектов по кварталам (сравнение с общей суммой)
+plt.figure(figsize=(10, 6))
+
+x = np.arange(len(quarters))
+width = 0.4
+
+# Два столбца рядом для каждого квартала
+plt.bar(x - width/2, projects, width, label='Проекты в квартале')
+plt.bar(x + width/2, [total] * 4, width, label='Общая сумма')
+
+plt.title('Количество проектов по кварталам')
+plt.xlabel('Кварталы')
+plt.ylabel('Количество')
+plt.xticks(x, quarters)
+plt.legend()
+
+# Краткие подписи
+for i, v in enumerate(projects):
+    plt.text(i - width/2, v + 0.5, f'{v}', ha='center', va='bottom')
+    plt.text(i + width/2, total + 0.5, f'{total}', ha='center', va='bottom')
+
+plt.tight_layout()
+plt.show()
+
+

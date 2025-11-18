@@ -85,6 +85,28 @@ for i, v in enumerate(projects):
     plt.text(i + width/2, total + 0.5, f'{total}', ha='center', va='bottom')
 
 plt.tight_layout()
+plt.show()import matplotlib.pyplot as plt
+import numpy as np
+
+# Данные
+quarters = ['1 кв.', '2 кв.', '3 кв.', '4 кв.']
+projects = [15, 22, 28, 19]
+total = sum(projects)
+
+# Диаграмма
+plt.figure(figsize=(10, 6))
+x = np.arange(len(quarters))
+
+plt.bar(x - 0.2, projects, width=0.4, label='Проекты в квартале')
+plt.bar(x + 0.2, [total]*4, width=0.4, label='Общая сумма')
+
+# Подписи в одну строку
+[plt.text(i-0.2, v+1, str(v), ha='center') for i,v in enumerate(projects)]
+[plt.text(i+0.2, total+1, str(total), ha='center') for i in range(4)]
+
+plt.title('Количество проектов по кварталам')
+plt.xticks(x, quarters)
+plt.legend()
 plt.show()
 
 
